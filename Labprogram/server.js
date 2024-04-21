@@ -22,6 +22,11 @@ app.post('/login',function(req,resp)
 		resp.sendFile(__dirname+"/"+"public/error.html")
 	}
 });
-app.listen(6789,function(){
-	console.log('Listening at port 6789');
-});
+app.get('/git',function(req,resp){
+	resp.sendFile(__dirname+"/"+"public/gitppro.html")
+})
+
+
+app.listen(1234,()=>{
+	console.log('app listening at 1234');
+})

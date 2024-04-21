@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="manifest" href="manifest.json"/>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -36,7 +34,7 @@
         box-sizing: border-box;
     }
 </style>
-</head>
+<link rel="manifest" href="manifest.json">
 <body>
 <form action="/login" method="post">
 <div style="margin-top:150px; text-align: center;">
@@ -46,24 +44,19 @@ Login</h1><br><br>
 <input type="password" placeholder="Enter Password" name="password" id="password"/><br><br>
 <input type="submit" value="Login" class="button"/>
 </div>
-</form>
-
 <script>
-    if('serviceWorker' in navigator){
-        window.addEventListener('load',()=>{
-            navigator.serviceWorker.register('sw.js',{
-                scope:"/"
-            })
-            .then(registration => {
-                console.log('service worker is registered',registration);
-            })
-            .catch(err =>{
-                console.log('service worker is not found',err);
-            })
-        })
-    }
-</script>
 
+if('serviceWorker' in navigator)
+{
+    window.addEventListener('load',()=>
+    {
+        navigator.serviceWorker.register('sw.js')
+        .then(reg=>console.log('registration successful'))
+        .catch(err=>console.log('error occured',err))
+    })
+}
+</script>
+</form>
 <script src="main.js"></script>
 </body>
 </html>
